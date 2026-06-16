@@ -6,7 +6,13 @@ export const useTodoStore = create((set) => ({
   // Add new todo
   addTodo: (text) => {
     set((state) => ({
-      todos: [...state.todos, { id: Date.now(), text, completed: false }]
+      todos: [...state.todos,
+      {
+        id: Date.now(),
+        text,
+        completed: false,
+        createdAt: new Date()
+      }]
     }))
   },
 

@@ -50,7 +50,21 @@ export const TodoList = () => {
                 <div className="todo-checkbox">
                   {todo.completed && <span className="checkmark">✓</span>}
                 </div>
-                <span className="todo-text">{todo.text}</span>
+
+                <div className="todo-text-container" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span className="todo-text">{todo.text}</span>
+
+                  {todo.createdAt && (
+                    <span className="todo-timestamp" style={{ fontSize: '0.75rem', opacity: 0.7, marginTop: '4px' }}>
+                      Skapad: {new Intl.DateTimeFormat('sv-SE', {
+                        day: 'numeric',
+                        month: 'short',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      }).format(new Date(todo.createdAt))}
+                    </span>
+                  )}
+                </div>
               </div>
               <button onClick={() => deleteTodo(todo.id)} className="delete-btn">
                 🗑️
