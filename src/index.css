@@ -134,6 +134,30 @@ body {
   background-color: #6c8f76;
 }
 
+/* COMPLETE ALL BTN */
+.complete-all-btn {
+  background: none;
+  border: 1px solid #4a6b56;
+  color: #b2d2bd;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.complete-all-btn:hover {
+  background-color: rgba(74, 107, 86, 0.2);
+  color: #f4f9f5;
+  border-color: #5c856c;
+}
+
+.complete-all-btn:active {
+  transform: scale(0.95);
+}
+
 /* TO DO LIST & ITEMS */
 .todo-list {
   list-style: none;

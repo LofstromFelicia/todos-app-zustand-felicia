@@ -3,7 +3,7 @@ import { useTodoStore } from "../store/useTodoStore"
 
 export const TodoList = () => {
   const [inputValue, setInputValue] = useState("")
-  const { todos, addTodo, deleteTodo, completedTodo } = useTodoStore()
+  const { todos, addTodo, deleteTodo, completedTodo, completeAllTodos } = useTodoStore()
 
   // counter 
   const totalTasks = todos.length
@@ -25,6 +25,10 @@ export const TodoList = () => {
           <h2>"Från tanke till handling."</h2>
           <p>{completedTasks} av {totalTasks} avklarade 🌿</p>
         </div>
+
+        <button onClick={completeAllTodos} className="complete-all-btn">
+          Markera alla som klara ✓
+        </button>
       </div>
 
       {/* FORM */}

@@ -31,4 +31,9 @@ export const useTodoStore = create((set) => ({
       )
     }))
   },
+
+  completeAllTodos: () => set((state) => ({
+    todos: state.todos.map(todo => ({ ...todo, completed: true }))
+  })),
+
 }))
