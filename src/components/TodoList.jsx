@@ -19,13 +19,35 @@ export const TodoList = () => {
 
   return (
     <div className="todo-container">
-      <h2>Min Att Göra-Lista</h2>
+      {/* Header w/title and statistics for clean look */}
+      <div className="todo-header">
+        <div className="header-text">
+          <h2>Idag</h2>
+          <p>{completedTasks} av {totalTasks} avklarade</p>
+        </div>
+      </div>
 
       {/* Stastistic counter */}
-      <div className="todo-stats">
-        <span>Totalt: {totalTasks}</span>
-        <span>Klara: {completedTasks} av {totalTasks}</span>
-      </div>
+      <div className="todo-list">
+        {todos.length === 0 ? (
+          <p className="empty message">Inga uppgifter inlagda. Njut! ✨</p>
+        ) : (
+          todos.map((todo) => (
+            <li key={todo.id} className={`todo-item ${todo.completed ? "completed" : ""}`}>
+              <div className="todo-content" onClick={() => completedTodo(todo.id)}>
+                {/* custom checkbox */}
+                <div className="todo-checkbox">
+                  {todo.completed && <span className="checkmark">✓</span>}
+                </div>
+                <span className="todo-text">{todo.text}</span>
+              </div>
+              <button onClick={() => deleteTodo(todo.id)} className="delete-btn">
+                🗑️
+              </button>
+            </li>
+          ))
+        )}
+      </ul>
 
       <form onSubmit={handleSubmit} className="todo-form">
         <input
@@ -34,25 +56,8 @@ export const TodoList = () => {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Skriv en ny uppgift..."
         />
-        <button type="submit" className="add-btn">Lägg till</button>
+        <button type="submit" className="add-btn">+</button>
       </form>
-
-      <ul className="todo-list">
-        {todos.length === 0 ? (
-          <p className="empty-message">Inga uppgifter inlagda. Njut av dagen! ☀️</p>
-        ) : (
-          todos.map((todo) => (
-            <li key={todo.id} className={`todo-item ${todo.completed ? "completed" : ""}`}>
-              <span onClick={() => completedTodo(todo.id)} className="todo-text">
-                {todo.text}
-              </span>
-              <button onClick={() => deleteTodo(todo.id)} className="delete-btn">
-                🗑️
-              </button>
-            </li>
-          ))
-        )}
-      </ul>
-    </div>
+    </div >
   )
 }
