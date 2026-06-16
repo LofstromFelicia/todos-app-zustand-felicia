@@ -1,14 +1,207 @@
-*,
-*::before,
-*::after {
+/* ====================================
+RESET & BASE STYLES
+=======================================*/
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #172621;
+  color: #f4f6f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.App {
+  width: 100%;
+  max-width: 480px;
+}
+
+.app-header h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #e3e8e6;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ===================================
+TO DO CONTAINER (THE CARD)
+====================================== */
+.todo-container {
+  background-color: #1f332d;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.todo-container h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+/* ================================
+STATISTICS TRACKER (COUNTER) 
+====================================*/
+.todo-stats {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2a423b;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #a3b8b0;
+  border-left: 4px solid #dca842;
+}
+
+/* ================================
+FORM & INPUT 
+===================================*/
+.todo-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.todo-form input {
+  flex: 1;
+  background-color: #172621;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.todo-form input:focus {
+  outline: none;
+  border-color: #dca842;
+  box-shadow: 0 0 0 3px rgba(220, 168, 66, 0.15);
+}
+
+.todo-form input::placeholder {
+  color: #637d74;
+}
+
+/* Add btn */
+.add-btn {
+  background-color: #dca842;
+  color: #172621;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #e5b858;
+  transform: translateY(-1px);
+}
+
+.add-btn:active {
+  transform: translateY(1px);
+}
+
+/* =======================================
+TO DO LIST & ITEMS 
+========================================= */
+.todo-list {
+  list-style: none;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background-color: #2a423b;
+  border-radius: 3px;
+}
+
+.empty-message {
+  color: #637d74;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #243d36;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  background-color: #28443c;
+  transform: translateX(2px);
+}
+
+.todo-text {
+  flex: 1;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  color: #e3e8e6;
+  transition: color 0.2s;
+  padding-right: 15px;
+}
+
+.todo-item.completed {
+  opacity: 0.4;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #8fa39b;
+}
+
+/* =================================
+DELETE BUTTON 
+==================================== */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.15);
 }
