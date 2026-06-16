@@ -1,3 +1,24 @@
+/* THEME VARIABLES */
+:root {
+  --bg-color: #1a4329;
+  --container-bg: rgba(19, 51, 31, 0.4);
+  --container-border: #285a3a;
+  --text-main: #f4f9f5;
+  --text-muted: #5c856c;
+  --text-accent: #b2d2bd;
+  --input-bg: #13331f;
+}
+
+body.light-theme {
+  --bg-color: #f2f7f4;
+  --container-bg: #ffffff;
+  --container-border: #b2d2bd;
+  --text-main: #0b1d12;
+  --text-muted: #5c856c;
+  --text-accent: #285a3a;
+  --input-bg: #e4eee7;
+}
+
 /* ====================================
 RESET & BASE STYLES
 =======================================*/
@@ -8,8 +29,9 @@ RESET & BASE STYLES
 }
 
 body {
-  background-color: #1a4329;
-  color: #0b1d12;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: greyscale;
@@ -33,8 +55,9 @@ body {
   flex-direction: column;
   min-height: 550px;
   width: 100%;
-  border: 2px solid #285a3a;
-  background-color: rgba(19, 51, 31, 0.4);
+  border: 2px solid var(--container-border);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
@@ -58,13 +81,13 @@ body {
 .app-header h1 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #f4f9f5;
+  color: var(--text-main);
   letter-spacing: 0.5px;
 }
 
 .app-header p {
   font-size: 1rem;
-  color: #5c856c;
+  color: var(--text-muted);
   font-weight: 500;
   margin-top: 6px;
   letter-spacing: 0.5px;
@@ -78,7 +101,7 @@ body {
 .todo-header h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #b2d2bd !important;
+  color: var(--text-accent) !important;
   margin-bottom: 16px;
   text-align: center;
   letter-spacing: 0.5px;
@@ -103,10 +126,11 @@ body {
 
 .todo-form input {
   flex: 1;
-  background-color: #13331f;
+  background-color: var(--input-bg);
   border: none;
   padding: 14px 16px;
-  color: #f4f9f5;
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1rem;
 }
 
@@ -255,6 +279,33 @@ body {
 
 .delete-btn:hover {
   opacity: 1;
+}
+
+/* THEME TOGGLE BTN */
+.theme-toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--container-bg);
+  border: 1px solid var(--container-border);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.98);
 }
 
 /* APP FOOTER */
