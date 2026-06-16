@@ -17,6 +17,12 @@ The production build of this application is deployed and hosted on Cloudflare Pa
 - **Full CRUD Mutations:** Users can fluidly add new tasks, instantly toggle completion states back and forth, and completely excise tasks from the array via the delete module.
 - **Custom UI Architecture:** Built with a clean, hardware-inspired custom dark theme tailored for modern workspace aesthetic.
 
+### ⚡ Stretch Goals Achieved
+- **🌗 Dynamic Dark / Light Mode:** Implemented a full theme-switch module using React hooks and CSS custom properties (variables) with smooth transitions, retaining a cohesive sage-green identity in both modes.
+- **⏳ Real-time Timestamps:** Every task automatically captures its creation date and formats it into a localized Swedish layout (`Intl.DateTimeFormat`) without relying on heavy external libraries.
+- **🧹 "Complete All" Module:** A strategic one-click function to batch-update all tasks to a completed state instantly.
+- **🎨 Custom Checkboxes & Micro-UX:** Includes custom-styled checkboxes that react visually to state changes, custom brand identity using a 🌿 favicon, and a designated empty-state message when the list is clear.
+
 ---
 
 ## 🛠️ Architecture Blueprint
