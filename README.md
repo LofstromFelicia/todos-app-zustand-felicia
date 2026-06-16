@@ -2,6 +2,14 @@
 
 A clean, responsive, and lightweight task manager application built with React, Vite, and Zustand. This project successfully implements all core global state requirements outlined by the Technigo curriculum.
 
+## 🚀 Deployment
+
+The production build of this application is deployed and hosted on Cloudflare Pages.
+
+🔗 **Live Demo Link:** [(https://todos-app-zustand-felicia.pages.dev)]
+
+---
+
 ## 🌟 Features Implemented (Core Goals)
 
 - **Global State Container:** Powered completely by Zustand to handle a unified data store without prop-drilling or Context Providers.
@@ -16,14 +24,6 @@ A clean, responsive, and lightweight task manager application built with React, 
 * `src/store/useTodoStore.js` – Central repository containing state mutation logic (`addTodo`, `deleteTodo`, `completeTodo`).
 * `src/components/TodoList.jsx` – Subscribes to the slice store, computes data analytics (task counters), and handles rendering.
 * `src/App.jsx` – Clean root node rendering the integrated layout shell.
-
----
-
-## 🚀 Deployment
-
-The production build of this application is deployed and hosted on Cloudflare Pages.
-
-🔗 **Live Demo Link:** [KLISTRA_IN_DIN_CLOUDFLARE_LÄNK_HÄR]
 
 ---
 
