@@ -8,200 +8,217 @@ RESET & BASE STYLES
 }
 
 body {
-  background-color: #172621;
-  color: #f4f6f5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #1a4329;
+  color: #0b1d12;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px 20px;
 }
 
 .App {
   width: 100%;
-  max-width: 480px;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
-.app-header h1 {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
-  color: #e3e8e6;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-/* ===================================
-TO DO CONTAINER (THE CARD)
-====================================== */
+/* CONTAINER */
 .todo-container {
-  background-color: #1f332d;
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
+  width: 100%;
+  border: 2px solid #285a3a;
+  background-color: rgba(19, 51, 31, 0.4);
+  padding: 24px;
   border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .todo-container h2 {
   font-size: 1.4rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 10px;
-}
-
-/* ================================
-STATISTICS TRACKER (COUNTER) 
-====================================*/
-.todo-stats {
-  display: flex;
-  justify-content: space-between;
-  background-color: #2a423b;
-  padding: 12px 18px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: #b2d2bd;
+  margin-bottom: 16px;
+  text-align: left;
   letter-spacing: 0.5px;
-  color: #a3b8b0;
-  border-left: 4px solid #dca842;
 }
 
-/* ================================
-FORM & INPUT 
-===================================*/
+/* HEADERS */
+.app-header {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f4f9f5;
+  letter-spacing: 0.5px;
+}
+
+.app-header p {
+  font-size: 1rem;
+  color: #5c856c;
+  font-weight: 500;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+.todo-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.todo-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #b2d2bd !important;
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.todo-header p {
+  font-size: 1rem;
+  color: #b2d2bd;
+  font-weight: 600;
+}
+
+/* FORM & INPUT */
 .todo-form {
   display: flex;
-  gap: 12px;
   margin-bottom: 25px;
+  border: 1px solid #4a6b56;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .todo-form input {
   flex: 1;
-  background-color: #172621;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #13331f;
+  border: none;
   padding: 14px 16px;
-  border-radius: 8px;
-  color: #ffffff;
+  color: #f4f9f5;
   font-size: 1rem;
-  transition: all 0.2s ease;
 }
 
 .todo-form input:focus {
   outline: none;
-  border-color: #dca842;
-  box-shadow: 0 0 0 3px rgba(220, 168, 66, 0.15);
 }
 
 .todo-form input::placeholder {
-  color: #637d74;
+  color: #5c856c;
 }
 
-/* Add btn */
+/* ADD TASK BTN */
 .add-btn {
-  background-color: #dca842;
-  color: #172621;
+  background-color: #7da087;
+  color: #0b1d12;
   border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.95rem;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .add-btn:hover {
-  background-color: #e5b858;
-  transform: translateY(-1px);
+  background-color: #6c8f76;
 }
 
-.add-btn:active {
-  transform: translateY(1px);
-}
-
-/* =======================================
-TO DO LIST & ITEMS 
-========================================= */
+/* TO DO LIST & ITEMS */
 .todo-list {
   list-style: none;
-  max-height: 350px;
+  flex: 1;
   overflow-y: auto;
-  padding-right: 4px;
+  margin-bottom: 25px;
 }
 
-.todo-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.todo-list::-webkit-scrollbar-thumb {
-  background-color: #2a423b;
-  border-radius: 3px;
-}
-
-.empty-message {
-  color: #637d74;
-  text-align: center;
-  font-size: 0.95rem;
-  padding: 20px 0;
-  font-style: italic;
+.todo-list p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5c856c;
 }
 
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #243d36;
-  border: 1px solid rgba(255, 255, 255, 0.02);
-  padding: 14px 18px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  transition: all 0.2s ease;
+
+  background-color: #7da087;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  transition: transform 0.2s ease;
 }
 
 .todo-item:hover {
-  background-color: #28443c;
-  transform: translateX(2px);
+  transform: translateY(-1px);
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-checkbox {
+  display: none;
 }
 
 .todo-text {
-  flex: 1;
-  cursor: pointer;
-  font-size: 1rem;
-  user-select: none;
-  color: #e3e8e6;
-  transition: color 0.2s;
-  padding-right: 15px;
+  font-size: 1.1rem;
+  color: #0b1d12;
+  font-weight: 600;
 }
 
+/* STATE COMPLETED  */
 .todo-item.completed {
-  opacity: 0.4;
+  background-color: #5d7a66;
+  opacity: 0.7;
 }
 
 .todo-item.completed .todo-text {
   text-decoration: line-through;
-  color: #8fa39b;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* =================================
-DELETE BUTTON 
-==================================== */
+/* REMOVE BTN */
 .delete-btn {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 4px;
-  opacity: 0.4;
-  filter: grayscale(100%);
-  transition: all 0.2s ease;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
 .delete-btn:hover {
   opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.15);
+}
+
+/* APP FOOTER */
+.app-footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 15px;
+}
+
+.app-footer p {
+  font-size: 1rem;
+  color: #5c856c;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }

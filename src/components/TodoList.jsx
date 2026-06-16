@@ -22,15 +22,26 @@ export const TodoList = () => {
       {/* Header w/title and statistics for clean look */}
       <div className="todo-header">
         <div className="header-text">
-          <h2>Idag</h2>
-          <p>{completedTasks} av {totalTasks} avklarade</p>
+          <h2>"Från tanke till handling."</h2>
+          <p>{completedTasks} av {totalTasks} avklarade 🌿</p>
         </div>
       </div>
 
-      {/* Stastistic counter */}
-      <div className="todo-list">
+      {/* FORM */}
+      <form onSubmit={handleSubmit} className="todo-form">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Skriv en ny uppgift..."
+        />
+        <button type="submit" className="add-btn">+</button>
+      </form>
+
+      {/* List w/ all todos */}
+      <ul className="todo-list">
         {todos.length === 0 ? (
-          <p className="empty message">Inga uppgifter inlagda. Njut! ✨</p>
+          <p className="empty-message">Inga uppgifter för idag. Njut! ✨</p>
         ) : (
           todos.map((todo) => (
             <li key={todo.id} className={`todo-item ${todo.completed ? "completed" : ""}`}>
@@ -48,16 +59,6 @@ export const TodoList = () => {
           ))
         )}
       </ul>
-
-      <form onSubmit={handleSubmit} className="todo-form">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Skriv en ny uppgift..."
-        />
-        <button type="submit" className="add-btn">+</button>
-      </form>
     </div >
   )
 }
