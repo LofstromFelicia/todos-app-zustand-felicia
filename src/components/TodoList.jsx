@@ -5,6 +5,10 @@ export const TodoList = () => {
   const [inputValue, setInputValue] = useState("")
   const { todos, addTodo, deleteTodo, completedTodo } = useTodoStore()
 
+  // counter 
+  const totalTasks = todos.length
+  const completedTasks = todos.filter(todo => todo.completed).length
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!inputValue.trim()) return
@@ -16,6 +20,12 @@ export const TodoList = () => {
   return (
     <div className="todo-container">
       <h2>Min Att Göra-Lista</h2>
+
+      {/* Stastistic counter */}
+      <div className="todo-stats">
+        <span>Totalt: {totalTasks}</span>
+        <span>Klara: {completedTasks} av {totalTasks}</span>
+      </div>
 
       <form onSubmit={handleSubmit} className="todo-form">
         <input
